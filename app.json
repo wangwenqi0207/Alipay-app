@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/myassesinfo/myassesinfo",
+    "pages/myasses/myasses",
+    "pages/bilityform/bilityform",
+    "pages/link_man/link_man",
+    "pages/user_info/user_info",
+    "pages/applyfor/applyfor",
+    "pages/homepage/homepage",
+    "pages/index/index"
+  ],
+  "window": {
+    "defaultTitle": ""
+  }
+}

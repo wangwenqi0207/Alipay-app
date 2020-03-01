@@ -1,0 +1,23 @@
+<!-- 小程序收藏组件，更多高级用法请参考文档：https://docs.alipay.com/mini/component/component-favorite -->
+
+<view class="btn-area">
+  <view>
+    <view class="login">
+    <text class="login_title">请使用手机号登录</text >
+    <form bindsubmit="formSubmit">
+      <view class="login_input">
+          <input class="phone_number" type="text" placeholder="请输入手机号" 
+          maxlength="11" name="phone_number" value="{{phone_number}}" onInput="phone_number"/>
+      </view>
+       <view class="login_input login_input2">
+          <input class="check_code" type="text" 
+          placeholder="请输入验证码" name="check_code" onInput="check_code"/>
+          <button class="get_code  {{ code_active?'isActive':'' }}"  onTap="get_login" disabled="{{isDisabled}}">{{get_code}}</button>
+      </view>
+      <view class="login_next">
+        <button formType="submit" >下一步</button>
+      </view>
+    </form>
+    </view>
+</view>
+</view>

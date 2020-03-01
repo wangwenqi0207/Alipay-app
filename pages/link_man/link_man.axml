@@ -1,0 +1,90 @@
+<!--pages/link_man/link_man.wxml-->
+<view class="link_info">
+  <view class="link_tit">
+    填写联系人信息（2/2）
+  </view>
+  <view class="link_detail_info">
+    <view class="link_detail_name">
+      <p>联系人姓名</p>
+      <input type="text" maxlength="12" class="link_input" 
+      placeholder="(请填写)" onInput="link_name" value="{{link_name}}"/>
+    </view>
+    <!-- 性别选择 -->
+    <view class="link_detail_name">
+      <p>性别</p>
+      <view class="user_sexbox">
+        <view class='parameter-wrap'>
+          <block a:for="{{parameter}}" a:key="parameter">
+            <text class='parameter-info text-over {{item.checked?"checked_parameter":""}}' a:for-index='' onTap='parameterTap'>{{item.name}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="link_detail_name">
+      <p>身份证号</p>
+      <input type="text" maxlength="25" class="link_input" 
+      placeholder="(请填写)" onInput="link_id"  value="{{link_id}}"/>
+    </view>
+    <view class="link_detail_name">
+      <p>手机号</p>
+      <input type="text" maxlength="11" class="link_input" 
+      placeholder="(请填写)" onInput="link_phone" value="{{link_phone}}"/>
+    </view>
+    <!-- 下拉选框 -->
+    <view class="link_detail_name">
+      <p>与参保人关系</p>
+      <!-- 下拉框 -->
+      <view class='top'>
+        <view class='top-selected' onTap='bindShowMsg'>
+          <text>{{grade_name}}</text>
+        </view>
+        <!-- 下拉需要显示的列表 -->
+        <view class="select_box" a:if="{{select}}">
+          <view a:for="{{grades}}" a:key="item.id">
+            <view class="select_one" onTap="mySelect" a:for-index='' a:for-item="">{{item.label}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 选择地区 -->
+  <view class="link_tit link_address">
+    选择地区
+  </view>
+  <!-- 城市 -->
+  <view>
+    <p onTap="clickCity" class="link_city">{{chooseCity}}</p>
+    <view class="boxcity" a:if="{{showCity}}">
+      <view class="chooseTit">
+        <p onTap="chooseProvince" a:if='{{tit1}}'>{{chooseTit1}}</p>
+        <p onTap="chooseCity2" a:if='{{tit2}}'>{{chooseTit2}}</p>
+        <p a:if='{{tit3}}'>{{chooseTit3}}</p>
+      </view>
+      <view class="citys">
+        <view onTap="getCity" class="province">
+          <ul a:if="{{showProvince}}">
+            <li a:for="{{provinceL}}" a:key="item.regionId" onTap="getProvince" 
+            a:for-item="" a:for-index=''>{{item.regionName}}</li>
+          </ul>
+          <ul a:if="{{showCity2}}">
+            <li a:for="{{cityL}}" a:key="item.regionId" 
+            onTap="getCity2" a:for-item="" a:for-index=''>{{item.regionName}}</li>
+          </ul>
+          <ul a:if="{{showarea}}">
+            <li a:for="{{areaL}}" a:key="item.regionId" onTap="getarea" a:for-item="" 
+            a:for-index=''
+            >{{item.regionName}}</li>
+          </ul>
+        </view>
+      </view>
+    </view>
+    <view class="mask" a:if="{{mackShow}}" onTap="closeMask"></view>
+  </view>
+  <view class="link_tit link_address">
+    联系地址（请填写具体真实信息）
+  </view>
+  <textarea class="linkman_textarea" maxlength="100" onInput="link_textarea" value="{{link_textarea}}"></textarea>
+  <view class="linkman_next" onTap="linkNext">
+    提交
+  </view>
+</view>
